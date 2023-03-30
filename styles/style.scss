@@ -1,0 +1,163 @@
+@import "./reset";
+@import "./mediaQueries";
+@import "./mixins";
+@import "./variables";
+
+body {
+  @include flex(center, center);
+  background: $very-dark-blue-main;
+  font-size: 18px;
+}
+
+// Component styles
+.nft-preview-card {
+  width: 330px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: $very-dark-blue-card;
+  border-radius: 1rem;
+  box-shadow: 0 30px 0 15px hsla(217, 54%, 10%, 0.8),
+    0 30px 0 50px hsla(216, 50%, 10%, 0.4);
+
+  &__image {
+    // styles for image container
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    &:hover::before {
+      content: "";
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $cyan;
+      opacity: 0.5;
+      border-radius: 0.5rem;
+    }
+
+    &-img {
+      // styles for image
+      border-radius: 0.5rem;
+    }
+
+    &-icon {
+      // styles for icon view
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    &:hover &-icon {
+      display: block;
+    }
+  }
+
+  &__body {
+    // styles for body container
+    font-family: $ff-outfit;
+
+    &-title {
+      // styles for title
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: $white;
+      font-weight: $fw-600;
+      @include hover($cyan);
+    }
+
+    &-text {
+      // styles for text
+      margin-bottom: 1.25rem;
+      color: $soft-blue;
+      font-weight: $fw-300;
+    }
+
+    &-price-time {
+      // styles for price-time container
+      @include flex(center, space-between);
+      margin-bottom: 1.5rem;
+    }
+
+    &-price {
+      // styles for price container
+      @include flex(center);
+      gap: 0.375rem;
+
+      &-icon {
+        // styles for price icon
+        &-img {
+          // styles for price image
+        }
+      }
+
+      &-value {
+        // styles for price value
+        color: $cyan;
+        font-size: 1rem;
+        font-weight: $fw-600;
+      }
+    }
+
+    &-time-left {
+      // styles for time container
+      @include flex(center);
+      gap: 0.375rem;
+
+      &-icon {
+        // styles for time icon
+        &-img {
+          // styles for time image
+        }
+      }
+
+      &-value {
+        // styles for time value
+        color: $soft-blue;
+      }
+    }
+
+    &-line {
+      // styles for line
+      height: 1px;
+      background: $very-dark-blue-line;
+      margin-bottom: 1rem;
+    }
+
+    &-creator {
+      // styles for creator container
+      @include flex(center);
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+
+      &-avatar {
+        // styles for avatar
+        width: 2rem;
+
+        &-img {
+          // styles for avatar image
+          border-radius: 50%;
+          border: 1px solid $white;
+        }
+      }
+
+      &-info {
+        // styles for creator info
+        color: $soft-blue;
+        font-size: 1rem;
+        font-weight: $fw-400;
+
+        &-name {
+          // styles for creator name
+          color: $white;
+          @include hover($cyan);
+        }
+      }
+    }
+  }
+}
